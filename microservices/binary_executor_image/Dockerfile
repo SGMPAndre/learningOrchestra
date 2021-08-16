@@ -5,10 +5,11 @@ COPY . /usr/src/binary_executor
 RUN pip install -r requirements.txt
 
 ENV MICROSERVICE_IP "0.0.0.0"
-ENV MICROSERVICE_PORT 5008
+ENV MICROSERVICE_PORT_VALUE 5008
 ENV BINARY_VOLUME_PATH "/binaries"
 ENV MODELS_VOLUME_PATH "/models"
 ENV TRANSFORM_VOLUME_PATH "/transform"
 ENV CODE_EXECUTOR_VOLUME_PATH "/code_executions"
 
+EXPOSE 5008
 CMD ["python", "server.py"]

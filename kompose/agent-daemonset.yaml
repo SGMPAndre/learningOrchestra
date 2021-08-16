@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.23.0 (bc7d9f4f)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: agent
+  name: agent
+spec:
+  selector:
+    matchLabels:
+      io.kompose.network-portainer: "true"
+      io.kompose.service: agent
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.network-portainer: "true"
+        io.kompose.service: agent
+    spec:
+      containers:
+        - image: portainer/agent:linux-amd64-2.1.0-alpine
+          name: agent
+          resources: {}
+          volumeMounts:
+            - mountPath: /var/run/docker.sock
+              name: agent-claim0
+            - mountPath: /var/lib/docker/volumes
+              name: agent-claim1
+      restartPolicy: Always
+      volumes:
+        - name: agent-claim0
+          persistentVolumeClaim:
+            claimName: agent-claim0
+        - name: agent-claim1
+          persistentVolumeClaim:
+            claimName: agent-claim1
+  updateStrategy: {}
+status:
+  currentNumberScheduled: 0
+  desiredNumberScheduled: 0
+  numberMisscheduled: 0
+  numberReady: 0

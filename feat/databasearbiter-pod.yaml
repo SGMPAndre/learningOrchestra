@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.23.0 (bc7d9f4f)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/database: "true"
+    io.kompose.service: databasearbiter
+  name: databasearbiter
+spec:
+  containers:
+    - env:
+        - name: MONGODB_ADVERTISED_HOSTNAME
+          value: databasearbiter
+        - name: MONGODB_PRIMARY_HOST
+          value: databaseprimary
+        - name: MONGODB_PRIMARY_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_PRIMARY_ROOT_PASSWORD
+          value: owl45#21
+        - name: MONGODB_REPLICA_SET_KEY
+          value: replicasetkey
+        - name: MONGODB_REPLICA_SET_MODE
+          value: arbiter
+        - name: MONGODB_REPLICA_SET_NAME
+          value: replica_set
+      image: bitnami/mongodb:3.6.17-ol-7-r26
+      name: databasearbiter
+      resources: {}
+  restartPolicy: OnFailure
+status: {}

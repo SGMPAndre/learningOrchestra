@@ -5,6 +5,7 @@ COPY . /usr/src/histogram
 RUN pip install -r requirements.txt
 
 ENV HISTOGRAM_HOST "0.0.0.0"
-ENV HISTOGRAM_PORT 5004
+ENV HISTOGRAM_PORT_VALUE 5004
 
+EXPOSE 5004
 CMD ["python", "server.py"]

@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.23.0 (bc7d9f4f)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/database: "true"
+    io.kompose.service: databaseapi
+  name: databaseapi
+spec:
+  containers:
+    - env:
+        - name: DATABASE_NAME
+          value: database
+        - name: DATABASE_PORT
+          value: "27017"
+        - name: DATABASE_REPLICA_SET
+          value: replica_set
+        - name: DATABASE_URL
+          value: mongodb://root:owl45#21@databaseprimary,databasesecondary
+      image: 10.96.120.0:5050/database_api
+      name: databaseapi
+      ports:
+        - containerPort: 5000
+      resources: {}
+      volumeMounts:
+        - mountPath: /datasets
+          name: database-api
+  restartPolicy: OnFailure
+  volumes:
+    - name: database-api
+      persistentVolumeClaim:
+        claimName: database-api
+status: {}

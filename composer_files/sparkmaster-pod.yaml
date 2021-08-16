@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.23.0 (bc7d9f4f)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/database: "true"
+    io.kompose.network/spark: "true"
+    io.kompose.service: sparkmaster
+  name: sparkmaster
+spec:
+  containers:
+    - env:
+        - name: SPARK_ROLE
+          value: master
+      image: 10.96.120.0:5050/spark
+      name: sparkmaster
+      ports:
+        - containerPort: 4040
+        - containerPort: 7077
+        - containerPort: 8080
+      resources: {}
+  restartPolicy: OnFailure
+status: {}

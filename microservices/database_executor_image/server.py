@@ -329,5 +329,5 @@ def analyse_patch_request_errors(request_validator: UserRequest,
 if __name__ == "__main__":
     app.run(
         host=os.environ["MICROSERVICE_IP"],
-        port=int(os.environ["MICROSERVICE_PORT"])
+        port=int(os.environ["MICROSERVICE_PORT_VALUE"])
     )

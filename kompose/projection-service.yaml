@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.23.0 (bc7d9f4f)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: projection
+  name: projection
+spec:
+  ports:
+    - name: "5001"
+      port: 5001
+      targetPort: 5001
+    - name: "41000"
+      port: 41000
+      targetPort: 41000
+  selector:
+    io.kompose.service: projection
+status:
+  loadBalancer: {}

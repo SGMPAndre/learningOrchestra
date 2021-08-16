@@ -8,7 +8,7 @@ HTTP_STATUS_CODE_NOT_ACCEPTABLE = 406
 HTTP_STATUS_CODE_CONFLICT = 409
 
 HISTOGRAM_HOST = "HISTOGRAM_HOST"
-HISTOGRAM_PORT = "HISTOGRAM_PORT"
+HISTOGRAM_PORT = "HISTOGRAM_PORT_VALUE"
 
 MESSAGE_RESULT = "result"
 
@@ -113,5 +113,6 @@ def analyse_request_errors(request_validator, parent_filename,
 
 
 if __name__ == "__main__":
+    print(os.environ[HISTOGRAM_PORT],True)
     app.run(host=os.environ[HISTOGRAM_HOST],
             port=int(os.environ[HISTOGRAM_PORT]))

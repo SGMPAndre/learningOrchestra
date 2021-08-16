@@ -1,0 +1,17 @@
+name: Run Database Api container
+description: Configuration file for the pipe corresponding to the database_api
+
+inputs:
+- {name: Function, type: String, description: 'Name of the function to be called'} #Função a ser chamada
+- {name: Json Data, type: Dict, default: '{}', description: 'JSON with all input data'} #Json com todos os inputs da função
+
+outputs:
+- {name: Main Output, type: Dict, description: 'Output of the function that has been called'}
+
+implementation:
+  container:
+    image: 10.105.222.93:5050/database_api
+    command: [ # bash$ python3 server.py
+      python3,
+      server.py #Arquivo que chama todas as funções dados os inputs
+    ]

@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.23.0 (bc7d9f4f)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/database: "true"
+    io.kompose.service: binaryexecutor
+  name: binaryexecutor
+spec:
+  containers:
+    - env:
+        - name: DATABASE_NAME
+          value: database
+        - name: DATABASE_PORT
+          value: "27017"
+        - name: DATABASE_REPLICA_SET
+          value: replica_set
+        - name: DATABASE_URL
+          value: mongodb://root:owl45#21@databaseprimary,databasesecondary
+      image: 10.96.120.0:5050/binary_executor
+      name: binaryexecutor
+      ports:
+        - containerPort: 5008
+      resources: {}
+      volumeMounts:
+        - mountPath: /models
+          name: model
+        - mountPath: /binaries
+          name: binary-executor
+        - mountPath: /transform
+          name: database-executor
+        - mountPath: /code_executions
+          name: code-executor
+  restartPolicy: OnFailure
+  volumes:
+    - name: model
+      persistentVolumeClaim:
+        claimName: model
+    - name: binary-executor
+      persistentVolumeClaim:
+        claimName: binary-executor
+    - name: database-executor
+      persistentVolumeClaim:
+        claimName: database-executor
+    - name: code-executor
+      persistentVolumeClaim:
+        claimName: code-executor
+status: {}

@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.23.0 (bc7d9f4f)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/database: "true"
+    io.kompose.service: databaseprimary
+  name: databaseprimary
+spec:
+  containers:
+    - env:
+        - name: MONGODB_ADVERTISED_HOSTNAME
+          value: databaseprimary
+        - name: MONGODB_REPLICA_SET_KEY
+          value: replicasetkey
+        - name: MONGODB_REPLICA_SET_MODE
+          value: primary
+        - name: MONGODB_REPLICA_SET_NAME
+          value: replica_set
+        - name: MONGODB_ROOT_PASSWORD
+          value: owl45#21
+      image: bitnami/mongodb:3.6.17-ol-7-r26
+      name: databaseprimary
+      ports:
+        - containerPort: 27017
+      resources: {}
+      volumeMounts:
+        - mountPath: /bitnami
+          name: database-storage
+      command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
+  restartPolicy: OnFailure
+  volumes:
+    - name: database-storage
+      persistentVolumeClaim:
+        claimName: database-pvc
+status: {}

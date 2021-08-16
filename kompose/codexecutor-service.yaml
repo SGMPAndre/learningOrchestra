@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.23.0 (bc7d9f4f)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: codexecutor
+  name: codexecutor
+spec:
+  ports:
+    - name: "5009"
+      port: 5009
+      targetPort: 5009
+  selector:
+    io.kompose.service: codexecutor
+status:
+  loadBalancer: {}

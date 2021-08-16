@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.23.0 (bc7d9f4f)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/database: "true"
+    io.kompose.network/spark: "true"
+    io.kompose.service: gatewayapi
+  name: gatewayapi
+spec:
+  containers:
+    - image: devopsfaith/krakend:1.2.0
+      name: gatewayapi
+      ports:
+        - containerPort: 8080
+        - containerPort: 8090
+      resources: {}
+      volumeMounts:
+        - mountPath: /etc/krakend
+          name: krakend-config
+  restartPolicy: OnFailure
+  volumes:
+    - name: krakend-config
+      configMap:
+        name: krakend
+status: {}
