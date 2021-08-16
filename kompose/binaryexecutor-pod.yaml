@@ -20,7 +20,7 @@ spec:
           value: replica_set
         - name: DATABASE_URL
           value: mongodb://root:owl45#21@databaseprimary,databasesecondary
-      image: 10.96.120.0:5050/binary_executor
+      image: 10.92.0.120:5050/binary_executor
       name: binaryexecutor
       ports:
         - containerPort: 5008
