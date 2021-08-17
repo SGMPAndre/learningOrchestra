@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "volume/database-executor"
+    path: "/mnt/database-executor"

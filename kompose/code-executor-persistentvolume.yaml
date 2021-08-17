@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "volume/code-executor"
+    path: "/mnt/code-executor"
