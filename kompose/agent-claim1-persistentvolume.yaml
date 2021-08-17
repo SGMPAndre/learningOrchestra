@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/agent-1"
+    path: "/var/lib/learningOrchestra/agent-1"

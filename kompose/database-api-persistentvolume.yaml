@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/database-api"
+    path: "/var/lib/learningOrchestra/database-api"

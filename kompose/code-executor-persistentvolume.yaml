@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/code-executor"
+    path: "/var/lib/learningOrchestra/code-executor"

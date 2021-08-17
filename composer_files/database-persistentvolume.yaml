@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/mongodb"
+    path: "/var/lib/learningOrchestra/mongodb"

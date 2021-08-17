@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/model"
+    path: "/var/lib/learningOrchestra/model"

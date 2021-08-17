@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/binary-executor"
+    path: "/var/lib/learningOrchestra/binary-executor"
