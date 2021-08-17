@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "$HOME/mnt/data"
+    path: "volume/data"

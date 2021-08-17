@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "$HOME/mnt/mongodb"
+    path: "volume/mongodb"

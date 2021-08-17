@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "$HOME/mnt/portainer"
+    path: "volume/portainer"
