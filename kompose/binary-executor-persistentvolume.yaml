@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/binary-executor"
+    path: "$HOME/mnt/binary-executor"

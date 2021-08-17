@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/agent-0"
+    path: "$HOME/mnt/agent-0"

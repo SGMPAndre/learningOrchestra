@@ -1,5 +1,5 @@
 #!/bin/bash
-registry_ip=10.96.120.0
+registry_ip=10.92.0.120
 registry_port=5050
 
 echo "learningOrchestra: a distributed machine learning processing tool"

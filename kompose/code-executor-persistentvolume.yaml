@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/code-executor"
+    path: "$HOME/mnt/code-executor"
