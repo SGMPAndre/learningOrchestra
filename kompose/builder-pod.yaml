@@ -21,7 +21,7 @@ spec:
           value: replica_set
         - name: DATABASE_URL
           value: mongodb://root:owl45#21@databaseprimary,databasesecondary
-      image: 10.92.0.120:5050/builder
+      image: 10.40.0.120:5050/builder
       name: builder
       ports:
         - containerPort: 5002

@@ -25,11 +25,12 @@ echo "--------------------------------------------------------------------"
 echo "Adding the microservice images in docker daemon security exception..."
 echo "--------------------------------------------------------------------"
 
-#echo "{
-#  \"exec-opts\": [\"native.cgroupdriver=systemd\"],
-#  \"insecure-registries\" : [\"$registry_ip:$registry_port\"]
-#}
-#" > /etc/docker/daemon.json
+echo "{
+  \"exec-opts\": [\"native.cgroupdriver=systemd\"],
+  \"insecure-registries\" : [\10.92.0.120:5050\"]
+}
+" > /etc/docker/daemon.json
+
 #
 #echo "--------------------------------------------------------------------"
 #echo "Restarting docker service..."

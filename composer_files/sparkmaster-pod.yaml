@@ -15,7 +15,7 @@ spec:
     - env:
         - name: SPARK_ROLE
           value: master
-      image: 10.92.0.120:5050/spark
+      image: 10.40.0.120:5050/spark
       name: sparkmaster
       ports:
         - containerPort: 4040

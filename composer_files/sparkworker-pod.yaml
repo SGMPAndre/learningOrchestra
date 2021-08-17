@@ -24,7 +24,7 @@ spec:
           value: sparkmaster
         - name: SPARK_ROLE
           value: slave
-      image: 10.92.0.120:5050/spark
+      image: 10.40.0.120:5050/spark
       name: sparkworker
       ports:
         - containerPort: 8081
